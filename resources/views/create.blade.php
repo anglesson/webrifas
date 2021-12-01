@@ -27,9 +27,8 @@
         <section>
             <h5>Criar Rifa</h5>
 
-            <form action="#">
+            <form action="{{ route('rifa.store') }}">
                 @csrf
-                @method('post')
                 <div class="input-group">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome">
@@ -44,7 +43,7 @@
                 </div>
                 <div class="input-group">
                     <label for="dataDoSorteio">Data do Sorteio</label>
-                    <input type="text" name="dataDoSorteio" id="dataDoSorteio">
+                    <input type="date" name="dataDoSorteio" id="dataDoSorteio">
                 </div>
                 <div class="input-group">
                     <label for="tipoDaRifa">Tipo da Rifa</label>

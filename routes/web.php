@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/rifa', [RifaController::class, 'create'])->name('rifa.create');
+Route::get('/rifa/store', [RifaController::class, 'store'])->name('rifa.store');

@@ -34,7 +34,9 @@ class RifaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
+        // Classe para realizar a chamada do store no banco de dados
+        
     }
 
     /**
