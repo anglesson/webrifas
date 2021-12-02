@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Rifa;
 
 class RifaController extends Controller
 {
@@ -13,7 +14,8 @@ class RifaController extends Controller
      */
     public function index()
     {
-        //
+        $totalDeRifas = Rifa::all()->count();
+        return view('index', compact('totalDeRifas'));
     }
 
     /**
@@ -34,9 +36,9 @@ class RifaController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-        // Classe para realizar a chamada do store no banco de dados
-        
+        $rifa = new Rifa();
+        $nova = $rifa->criarRifa($request->all());
+        return redirect('/');
     }
 
     /**

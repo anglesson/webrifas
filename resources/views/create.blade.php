@@ -27,8 +27,9 @@
         <section>
             <h5>Criar Rifa</h5>
 
-            <form action="{{ route('rifa.store') }}">
+            <form action="{{route('rifa.store')}}" method="POST">
                 @csrf
+                @method('post')
                 <div class="input-group">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome">
@@ -49,9 +50,9 @@
                     <label for="tipoDaRifa">Tipo da Rifa</label>
                     <select name="tipoDaRifa" id="tipoDaRifa">
                         <option value="" disabled selected>-- Selecione --</option>
-                        <option value="10">Dezena</option>
-                        <option value="100">Centena</option>
-                        <option value="1000">Milhar</option>
+                        <option value="DEZENA">Dezena</option>
+                        <option value="CENTENA">Centena</option>
+                        <option value="MILHAR">Milhar</option>
                     </select>
                 </div>
                 <div class="input-group">

@@ -27,7 +27,7 @@
         <section>
             <h5>Dashboard</h5>
             <div class="card">
-                <h2>0</h2>
+                <h2>{{ $totalDeRifas }}</h2>
                 <p>Rifas cadastradas</p>
             </div>
         </section>
