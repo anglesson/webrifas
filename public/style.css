@@ -15,6 +15,7 @@ html,
 body {
   width: 100%;
   height: 100%;
+  min-width: 550px;
 }
 
 body {
@@ -147,12 +148,13 @@ section h5 {
 
 footer {
   display: flex;
+  align-self: center;
   align-items: center;
   justify-content: center;
   position: absolute;
   bottom: 0;
   margin-bottom: 4rem;
-  width: 100%;
+  width: 60%;
 }
 
 .button-link {
@@ -161,7 +163,7 @@ footer {
   align-items: center;
   position: relative;
   height: 3.5rem;
-  width: 80%;
+  width: 100%;
   border-radius: 5px;
   background-color: var(--secondary);
 
@@ -171,6 +173,51 @@ footer {
   font-family: 'Montserrat', sans-serif;
   font-weight: bolder;
   font-size: 1.5rem;
+}
+
+.button-link-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  height: 8rem;
+  width: 60%;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: var(--secondary);
+  margin: 0.5rem 0;
+
+  /** Font **/
+  text-decoration: none;
+  color: var(--tertiary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+.button-link-list .title-card {
+  text-decoration: none;
+  color: var(--tertiary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.button-link-list .description-card {
+  margin-top: 0.3rem;
+  text-decoration: none;
+  color: var(--tertiary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 0.8rem;
+}
+
+.button-link-list .preco-card {
+  text-decoration: none;
+  color: var(--tertiary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 /**** Form ****/
@@ -212,8 +259,5 @@ button {
   background-color: #FFB800;
   border-radius: 5px;
   font-weight: 600;
-}
-
-button {
   cursor: pointer;
 }

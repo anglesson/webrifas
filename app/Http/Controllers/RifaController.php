@@ -12,7 +12,18 @@ class RifaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function list()
+    {
+        $rifas = Rifa::all();
+        return view('list', compact('rifas'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function home()
     {
         $totalDeRifas = Rifa::all()->count();
         return view('index', compact('totalDeRifas'));
@@ -60,7 +71,8 @@ class RifaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $rifa = Rifa::findOrFail($id);
+        return view('edit', compact('rifa'));
     }
 
     /**
@@ -72,7 +84,9 @@ class RifaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rifa = Rifa::findOrFail($id);
+        $rifa->editarRifa($request->all());
+        return redirect()->back();
     }
 
     /**

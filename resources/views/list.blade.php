@@ -27,20 +27,19 @@
     <main class="container">
         <!-- Section - Dashboard -->
         <section>
-            <h5>Dashboard</h5>
-            <a href="{{route('rifa.list')}}" style="text-decoration: none">
-                <div class="card">
-                    <h2>{{ $totalDeRifas }}</h2>
-                    <p>Rifas cadastradas</p>
-                </div>
+            <h5>Selecione para ver os detalhes</h5>
+            @foreach ($rifas as $rifa)    
+            <a href="{{ route('rifa.edit', $rifa->id) }}" class="button-link-list">
+              <div>
+                <p class="title-card">{{$rifa->nome}}</p>
+                <p class="description-card">{{$rifa->descricao}}</p>
+              </div>
+              <p class="preco-card">R$ {{ number_format($rifa->preco, 2, ',', '.') }}</p>
             </a>
+            @endforeach
         </section>
         <!-- End Section - Dashboard -->
     </main>
-
-    <footer>
-        <a href="{{ route('rifa.create') }}" class="button-link"> Criar Rifa </a>
-    </footer>
 </body>
 
 </html>
