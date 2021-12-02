@@ -6,6 +6,12 @@ function formatToReal($value, $decimals = 2)
   return $value;
 }
 
+function formatToDouble($value, $decimals = 2)
+{
+  $value = number_format((float)$value, $decimals, '.', ',');
+  return $value;
+}
+
 function success(string $msg)
 {
   return [

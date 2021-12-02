@@ -20,3 +20,4 @@ Route::get('/rifas', [RifaController::class, 'list'])->name('rifa.list');
 */
 Route::post('/rifa/store', [RifaController::class, 'store'])->name('rifa.store');
 Route::put('/rifa/update/{id}', [RifaController::class, 'update'])->name('rifa.update');
+Route::delete('/rifa/delete/{id}', [RifaController::class, 'destroy'])->name('rifa.delete');

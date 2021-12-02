@@ -15,6 +15,10 @@ class RifaController extends Controller
     public function list()
     {
         $rifas = Rifa::all();
+        if($rifas->count() == 0) {
+            $alert = warning('Não há rifas cadastradas.');
+            return redirect()->route('rifa.index')->with(compact('alert'));
+        }
         return view('list', compact('rifas'));
     }
 
@@ -49,7 +53,8 @@ class RifaController extends Controller
     {
         $rifa = new Rifa();
         $nova = $rifa->criarRifa($request->all());
-        return redirect('/');
+        $alert = success('Rifa cadastrada com suscesso.');
+        return redirect()->route('rifa.index')->with(compact('alert'));
     }
 
     /**
@@ -86,7 +91,8 @@ class RifaController extends Controller
     {
         $rifa = Rifa::findOrFail($id);
         $rifa->editarRifa($request->all());
-        return redirect()->back();
+        $alert = success('Dados atualizados com suscesso.');
+        return redirect()->back()->with(compact('alert'));
     }
 
     /**
@@ -97,6 +103,9 @@ class RifaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rifa = Rifa::findOrFail($id);
+        $rifa->excluirRifa();
+        $alert = success('A rifa foi excluída.');
+        return redirect()->route('rifa.index')->with(compact('alert'));
     }
 }

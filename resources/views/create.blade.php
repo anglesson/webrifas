@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+@extends('layouts.template')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WEBRIFAS</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{asset('style.css')}}" />
-</head>
-
-<body>
-    <!-- Navbar -->
-    <nav id="navbar">
-        <h3 id="logo"><span>WEB</span>RIFAS</h3>
-    </nav>
-    <!-- End Navbar -->
-
-    <main class="container">
+@section('content')    
         <!-- Section - Dashboard -->
         <section>
             <h5>Criar Rifa</h5>
@@ -32,23 +10,23 @@
                 @method('post')
                 <div class="input-group">
                     <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome">
+                    <input type="text" name="nome" id="nome" required>
                 </div>
                 <div class="input-group">
                     <label for="descricao">Descrição</label>
-                    <input type="text" name="descricao" id="descricao">
+                    <input type="text" name="descricao" id="descricao" required>
                 </div>
                 <div class="input-group">
-                    <label for="preco">Preço</label>
-                    <input type="text" name="preco" id="preco">
+                    <label for="preco">Preço do Bilhete</label>
+                    <input type="text" class="moneyUS" name="preco" id="preco" required>
                 </div>
                 <div class="input-group">
                     <label for="dataDoSorteio">Data do Sorteio</label>
-                    <input type="date" name="dataDoSorteio" id="dataDoSorteio">
+                    <input type="date" name="dataDoSorteio" id="dataDoSorteio" required>
                 </div>
                 <div class="input-group">
                     <label for="tipoDaRifa">Tipo da Rifa</label>
-                    <select name="tipoDaRifa" id="tipoDaRifa">
+                    <select name="tipoDaRifa" id="tipoDaRifa" required>
                         <option value="" disabled selected>-- Selecione --</option>
                         <option value="DEZENA">Dezena</option>
                         <option value="CENTENA">Centena</option>
@@ -57,7 +35,7 @@
                 </div>
                 <div class="input-group">
                     <label for="status">Status</label>
-                    <select name="status" id="status">
+                    <select name="status" id="status" required>
                         <option value="1">Ativa</option>
                         <option value="0">Inativa</option>
                         <option value="2">Sorteada</option>
@@ -69,7 +47,4 @@
             </form>
         </section>
         <!-- End Section - Dashboard -->
-    </main>
-</body>
-
-</html>
+@endsection
