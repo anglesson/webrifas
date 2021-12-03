@@ -56,7 +56,7 @@ composer install
 No Mysql crie um banco de dados com o nome **webrifas**.
 
 Na raiz da pasta do projeto, renomeie o arquivo **.env.example** para **.env**. <br>
-Preencha as variáveis de ambiente do arquivo recém renomedo **.env**.
+Preencha as variáveis de ambiente do arquivo recém renomeado **.env**.
 
 ```
 DB_DATABASE=webrifas
@@ -77,7 +77,7 @@ php artisan migrate
 
 Execute a aplicação:
 ```
-php aritsan serve
+php artisan serve
 ```
 Pronto! Sua aplicação estará disponível em http://localhost:8000
 
