@@ -52,7 +52,8 @@ class RifaController extends Controller
     public function store(Request $request)
     {
         $rifa = new Rifa();
-        $nova = $rifa->criarRifa($request->all());
+        $novaRifa = $rifa->criarRifa($request->all());
+        $novaRifa->gerarBilhetes();
         $alert = success('Rifa cadastrada com suscesso.');
         return redirect()->route('rifa.index')->with(compact('alert'));
     }
@@ -65,7 +66,8 @@ class RifaController extends Controller
      */
     public function show($id)
     {
-        //
+        $rifa = Rifa::findOrFail($id);
+        return view('show', compact('rifa'));
     }
 
     /**

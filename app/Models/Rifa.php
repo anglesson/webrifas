@@ -22,6 +22,11 @@ class Rifa extends Model
       'dataDoSorteio'
     ];
 
+    public function bilhetes()
+    {
+      return $this->hasMany(Bilhete::class);
+    }
+
     public function criarRifa(array $data): Rifa
     {
       return $this->create($data);
@@ -34,10 +39,14 @@ class Rifa extends Model
   
     public function excluirRifa()
     {
+      if($this->bilhetes->count() > 0) 
+      {
+        $this->bilhetes()->truncate();
+      }
       $this->destroy($this->id);
     }
   
-    public function gerarBilhetes(int $qtd)
+    public function gerarBilhetes()
     {
       define("TAMANHO_DEZENA", 2);
       define("TAMANHO_CENTENA", 3);
@@ -65,7 +74,7 @@ class Rifa extends Model
         $bilhete = new Bilhete();
         $bilhete->numero = str_pad($i, $tamanho, '0', STR_PAD_LEFT);
         $bilhete->status = 0;
-        $bilhete->rifa_id = $this->rifa_id;
+        $bilhete->rifa_id = $this->id;
         $bilhete->save();
       }
     }
