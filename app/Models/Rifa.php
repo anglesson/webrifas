@@ -9,6 +9,9 @@ class Rifa extends Model
 {
     use HasFactory;
 
+    /**
+     * Indica quais campos são permitidos para inserção no banco de dados.
+     */
     protected $fillable = [
       'nome',
       'descricao',
@@ -18,25 +21,46 @@ class Rifa extends Model
       'status'
     ];
 
+    /**
+     * Indica quais campos são do tipo Date para facilitar a manipulação e formatação de data no frontend.
+     */
     protected $dates = [
       'dataDoSorteio'
     ];
 
+    /**
+     * Método responsável por buscar todos os bilhetes pertencentes à rifa no banco de dados.
+     * @return Array<Bilhete>
+     */
     public function bilhetes()
     {
       return $this->hasMany(Bilhete::class);
     }
 
+    /**
+     * Método responsável por salvar a rifa no banco de dados.
+     * @param array $data
+     * @return void
+     */
     public function criarRifa(array $data): Rifa
     {
       return $this->create($data);
     }
   
+    /**
+     * Método responsável por editar as informações da rifa.
+     * @param array $data
+     * @return void
+     */
     public function editarRifa(array $data)
     {
       $this->update($data);
     }
-  
+
+    /**
+     * Método responsável por excluir a rifas e os bilhetes pertencentes a ela.
+     * @return void
+     */
     public function excluirRifa()
     {
       if($this->bilhetes->count() > 0) 
@@ -46,6 +70,10 @@ class Rifa extends Model
       $this->destroy($this->id);
     }
   
+    /**
+     * Método responsável por gerar os bilhetes de acordo com o tipo da Rifa.
+     * @return void
+     */
     public function gerarBilhetes()
     {
       define("TAMANHO_DEZENA", 2);
