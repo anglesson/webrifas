@@ -23,5 +23,6 @@
     <br><br>
     <div class="input-group">
       <a style="color: var(--secondary)" href="{{route('rifa.index')}}">Voltar</a>
+      <a style="color: var(--secondary)" href="{{route('rifa.edit', $rifa->id)}}">Editar</a>
   </div>
 @endsection
