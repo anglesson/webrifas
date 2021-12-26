@@ -26,7 +26,7 @@
                 </div>
                 <div class="input-group">
                     <label for="tipoDaRifa">Tipo da Rifa</label>
-                    <select name="tipoDaRifa" id="tipoDaRifa" required>
+                    <select disabled name="tipoDaRifa" id="tipoDaRifa" required>
                         <option value="" disabled selected>-- Selecione --</option>
                         <option value="DEZENA" @if($rifa->tipoDaRifa === 'DEZENA') {{'selected'}} @endif >Dezena</option>
                         <option value="CENTENA" @if($rifa->tipoDaRifa === 'CENTENA') {{'selected'}} @endif >Centena</option>
