@@ -259,7 +259,7 @@ input[type=text], input[type=date], textarea, select {
   height: 2.5rem;
   border-radius: 5px;
   margin: 8px 0;
-  color: #11250B;
+  color: #11250B !important;
   font-weight: bold;
 }
 
